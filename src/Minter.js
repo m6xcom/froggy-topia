@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import ConnectWalletButton from './ConnectWalletButton.js';
 import { connectWallet, getCurrentWalletConnected, mintNFT } from "./utils/interact.js";
 
 const Minter = (props) => {
@@ -70,26 +71,26 @@ const Minter = (props) => {
 
       <br></br>
       <h1 className="title" id="title">FroggyTopia</h1>
-      <p>
-        Simply add your asset's link, name, and description, then press "Mint."
+      <p className="subtitle">
+        🐸 Simply add your asset's link, name, and description, then press "Mint."
       </p>
-      <form>
-        <h2>🖼 Link to asset: </h2>
+      <form className="form">
         <input
+          className="input"
           type="text"
-          placeholder="e.g. https://gateway.pinata.cloud/ipfs/<hash>"
+          placeholder="Link to asset"
           onChange={(event) => setURL(event.target.value)}
         />
-        <h2>🤔 Name: </h2>
         <input
           type="text"
-          placeholder="e.g. My first NFT!"
+          className="input"
+          placeholder="Name"
           onChange={(event) => setName(event.target.value)}
         />
-        <h2>✍️ Description: </h2>
         <input
           type="text"
-          placeholder="e.g. Even cooler than cryptokitties ;)"
+          className="input"
+          placeholder="Description"
           onChange={(event) => setDescription(event.target.value)}
         />
       </form>
