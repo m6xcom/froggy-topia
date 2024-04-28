@@ -7,6 +7,19 @@
     z-index: -1;
 }
 
+.pad__12{
+  position: relative;
+}
+
+.pad-frog{
+  position: absolute;
+  width: 70%;
+}
+
+.pad-frog--reversed{
+  transform: scaleX(-1);
+}
+
 .cover, html, body, .bg-image {
     width: 100%;
     height: 100%;

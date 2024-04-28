@@ -114,10 +114,13 @@ button {
 }
 
 #walletButton {
+  border: 2px solid #000;
+  background-color: var(--primary-pad-color);
   text-align: right;
   float:right;
   margin-bottom: 50px;
   line-height: 16px;
+  color: #000;
 }
 
 #mintButton {

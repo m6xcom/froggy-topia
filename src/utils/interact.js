@@ -96,6 +96,33 @@ export const connectWallet = async () => {
     }
   };
 
+  export const switchNetwork = async () => {
+    const chainId = 59141
+
+    if (window.ethereum.networkVersion !== chainId) {
+        try {
+          await window.ethereum.request({
+            method: 'wallet_switchEthereumChain',
+            params: [{ chainId: web3.utils.toHex(chainId) }]
+          });
+        } catch (err) {
+          if (err.code === 4902) {
+            await window.ethereum.request({
+              method: 'wallet_addEthereumChain',
+              params: [
+                {
+                  chainName: 'Linea Sepolia',
+                  chainId: web3.utils.toHex(chainId),
+                  nativeCurrency: { name: 'ETH', decimals: 18, symbol: 'Ethereum' },
+                  rpcUrls: ['https://rpc.sepolia.linea.build/']
+                }
+              ]
+            });
+          }
+        }
+      }
+  }
+
   export const getCurrentWalletConnected = async () => {
     if (window.ethereum) {
       try {

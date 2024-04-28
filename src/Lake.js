@@ -35,13 +35,17 @@ const Lake = () => {
         <use href="#flower" />
         </svg> 
         </div>
-        <div className="pad pad__8"></div>
+        <div className="pad pad__8">
+            <img className="pad-frog pad-frog--reversed" src='/frog-2.png'/>
+        </div>
         <div className="pad pad__9"></div>
         <div className="pad pad__10"></div>
         
         <div className="pad  pad__11">
         </div>
-        <div className="pad pad__12"></div>
+        <div className="pad pad__12">
+            <img className="pad-frog" src='/frog-1.png'/>
+        </div>
         <div className="pad pad--alt pad__13">
         <svg className="flower">
             <use href="#flower" />
@@ -51,8 +55,12 @@ const Lake = () => {
         <div className="semi-pad--left"></div>
         <div className="semi-pad--right"></div>
         </div>
-        <div className="pad pad__15"></div>
-        <div className="pad pad--alt pad__16"></div>
+        <div className="pad pad__15">
+            <img className="pad-frog" src='/frog-3.png'/>
+        </div>
+        <div className="pad pad--alt pad__16">
+            <img className="pad-frog pad-frog--reversed" src='/frog-4.png'/>
+        </div>
         
         <div className="drop drop--1"></div>
         <div className="drop drop--2"></div>
