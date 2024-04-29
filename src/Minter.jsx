@@ -36,13 +36,13 @@ const Minter = (props) => {
   }
   
  
-  // useEffect( () => { //TODO: implement
-  //   const {address, status} = getCurrentWalletConnected();
-  //   setWallet(address)
-  //     setStatus(status);
-  //
-  //   addWalletListener();
-  // }, []);
+  useEffect( () => {
+    const {address, status} = getCurrentWalletConnected();
+    setWallet(address)
+      setStatus(status);
+  
+    addWalletListener();
+  }, []);
 
   const connectWalletPressed = async () => {
     const walletResponse = await connectWallet();
@@ -99,9 +99,9 @@ const Minter = (props) => {
       <button id="mintButton" onClick={onMintPressed}>
         Mint NFT
       </button>
-      <p id="status">
+      {status && <p id="status">
         {status}
-      </p>
+      </p>}
     </div>
   );
 };
