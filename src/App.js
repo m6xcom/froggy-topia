@@ -5,7 +5,7 @@ import Lake from './Lake'
 function App() {
   return (
     <div className="App">
-      {/* <Lake/> */}
+      <Lake/>
       <Minter></Minter>
     </div>
   );
