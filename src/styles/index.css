@@ -136,3 +136,17 @@ button {
   font-size: 20px;
   color:#000;
 }
+
+.particles-js-canvas-el{
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.web3-button{
+  margin-left: auto;
+}
+
+button[data-size='md'] {
+  background-color: #88AA11;
+}

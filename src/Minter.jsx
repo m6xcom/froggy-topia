@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { connectWallet, switchNetwork, getCurrentWalletConnected, mintNFT } from "./utils/interact.js";
+import { connectWallet, switchNetwork, getCurrentWalletConnected, mintNFT } from "./utils/interact.jsx";
 
 const Minter = (props) => {
 
@@ -36,13 +36,13 @@ const Minter = (props) => {
   }
   
  
-  useEffect(async () => { //TODO: implement
-    const {address, status} = await getCurrentWalletConnected();
-    setWallet(address)
-    setStatus(status);
-
-    addWalletListener(); 
-  }, []);
+  // useEffect( () => { //TODO: implement
+  //   const {address, status} = getCurrentWalletConnected();
+  //   setWallet(address)
+  //     setStatus(status);
+  //
+  //   addWalletListener();
+  // }, []);
 
   const connectWalletPressed = async () => {
     const walletResponse = await connectWallet();
@@ -59,16 +59,17 @@ const Minter = (props) => {
 
   return (
     <div className="Minter">
-      <button id="walletButton" onClick={connectWalletPressed}>
-        {walletAddress.length > 0 ? (
-          "Connected: " +
-          String(walletAddress).substring(0, 6) +
-          "..." +
-          String(walletAddress).substring(38)
-        ) : (
-          <span>Connect Wallet</span>
-        )}
-      </button>
+      {/*<button id="walletButton" onClick={connectWalletPressed}>*/}
+      {/*  {walletAddress.length > 0 ? (*/}
+      {/*    "Connected: " +*/}
+      {/*    String(walletAddress).substring(0, 6) +*/}
+      {/*    "..." +*/}
+      {/*    String(walletAddress).substring(38)*/}
+      {/*  ) : (*/}
+      {/*    <span>Connect Wallet</span>*/}
+      {/*  )}*/}
+      {/*</button>*/}
+        <w3m-button class="web3-button"/>
 
       <br></br>
       <h1 className="title" id="title">FroggyTopia</h1>

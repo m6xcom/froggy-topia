@@ -1,12 +1,10 @@
-import {pinJSONToIPFS} from './pinata.js'
-import lineaData from './eip155-59141.json'
+import {pinJSONToIPFS} from './pinata.jsx'
 
-require('dotenv').config();
 const alchemyKey = process.env.REACT_APP_ALCHEMY_KEY;
-const { createAlchemyWeb3 } = require("@alch/alchemy-web3");
+import { createAlchemyWeb3 } from '@alch/alchemy-web3';
 const web3 = createAlchemyWeb3(alchemyKey);
 
-const contractABI = require('../contract-abi.json')
+import contractABI from '../contract-abi.json'
 const contractAddress = "0x1e2a29829b32aD3C1F2710D3Bdec84A8743Ee4F4";
 
 export const mintNFT = async (url, name, description) => {
@@ -51,7 +49,7 @@ export const mintNFT = async (url, name, description) => {
             });
         return {
             success: true,
-            status: `✅ Check out your transaction on explorer: ${lineaData.explorers[0]}/tx/` + txHash
+            status: "✅ Check out your transaction on explorer: https://sepolia.lineascan.build/tx/" + txHash
         }
     } catch (error) {
         return {
@@ -98,7 +96,7 @@ export const connectWallet = async () => {
   };
 
   export const switchNetwork = async () => {
-    const chainId = lineaData.chainId
+    const chainId = 59141
 
     if (window.ethereum.networkVersion !== chainId) {
         try {
@@ -112,10 +110,10 @@ export const connectWallet = async () => {
               method: 'wallet_addEthereumChain',
               params: [
                 {
-                  chainName: lineaData.name,
+                  chainName: 'Linea Sepolia',
                   chainId: web3.utils.toHex(chainId),
-                  nativeCurrency: lineaData.nativeCurrency,
-                  rpcUrls: [lineaData.rpc[0]]
+                  nativeCurrency: { name: 'ETH', decimals: 18, symbol: 'Ethereum' },
+                  rpcUrls: ['https://rpc.sepolia.linea.build/']
                 }
               ]
             });
