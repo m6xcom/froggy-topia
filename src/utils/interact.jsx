@@ -1,12 +1,11 @@
 import {pinJSONToIPFS} from './pinata.jsx'
-import lineaData from './eip155-59141.json'
 
 const alchemyKey = process.env.REACT_APP_ALCHEMY_KEY;
 import { createAlchemyWeb3 } from '@alch/alchemy-web3';
 const web3 = createAlchemyWeb3(alchemyKey);
 
 import contractABI from '../contract-abi.json'
-const contractAddress = "0x1e2a29829b32aD3C1F2710D3Bdec84A8743Ee4F4";
+const contractAddress = "0x8786821e8996E39E5568529E4E735bcF3A892c21";
 
 export const mintNFT = async (url, name, description) => {
     //error handling
@@ -35,6 +34,7 @@ export const mintNFT = async (url, name, description) => {
   window.contract = await new web3.eth.Contract(contractABI, contractAddress);
 
    //set up your Ethereum transaction
+   console.log(tokenURI)
    const transactionParameters = {
         to: contractAddress, // Required except during contract publications.
         from: window.ethereum.selectedAddress, // must match user's active address.
@@ -50,7 +50,7 @@ export const mintNFT = async (url, name, description) => {
             });
         return {
             success: true,
-            status: "✅ Check out your transaction on explorer: https://sepolia.lineascan.build/tx/" + txHash
+            status: "✅ Check out your transaction on explorer: https://optimistic.etherscan.io/tx/" + txHash
         }
     } catch (error) {
         return {
@@ -97,7 +97,7 @@ export const connectWallet = async () => {
   };
 
    export const switchNetwork = async () => {
-    const chainId = lineaData.chainId
+    const chainId = 10
 
     if (window.ethereum.networkVersion !== chainId) {
         try {
@@ -111,10 +111,10 @@ export const connectWallet = async () => {
               method: 'wallet_addEthereumChain',
               params: [
                 {
-                  chainName: lineaData.name,
+                  chainName: 'OP Mainnet',
                   chainId: web3.utils.toHex(chainId),
-                  nativeCurrency: lineaData.nativeCurrency,
-                  rpcUrls: [lineaData.rpc[0]]
+                  nativeCurrency: 'ETH',
+                  rpcUrls: ['https://mainnet.optimism.io']
                 }
               ]
             });

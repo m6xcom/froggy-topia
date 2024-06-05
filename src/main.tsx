@@ -3,16 +3,16 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import "./styles/index.css";
 import { createWeb3Modal, defaultConfig } from "@web3modal/ethers5/react";
-import lineaData from './utils/eip155-59141.json';
+// import lineaData from './utils/eip155-59141.json';
 
 const projectId:string = process.env.WALLET_CONNECT_PROJECT_ID!;
 
 const network = {
-	chainId: lineaData.chainId,
-	name: lineaData.name,
-	currency: lineaData.nativeCurrency.symbol,
-	explorerUrl: lineaData.explorers[0].url,
-	rpcUrl: lineaData.rpc[0]
+	chainId: 10,
+	name: 'OP Mainnet',
+	currency: 'ETH',
+	explorerUrl: 'https://explorer.optimism.io',
+	rpcUrl: 'https://mainnet.optimism.io'
   }
 
 const chains:any[] = [network]!;
@@ -42,8 +42,8 @@ createWeb3Modal({
 		'4622a2b2d6af1c9844944291e5e7351a6aa24cd7b23099efac1b2fd875da31a0',
 	],
 	tokens: {
-		[lineaData.chainId]: {
-		  address: '0x06565ed324Ee9fb4DB0FF80B7eDbE4Cb007555a3',
+		[10]: {
+		  address: '0x4200000000000000000000000000000000000006',
 		  image: "https://s2.coinmarketcap.com/static/img/coins/64x64/2396.png"
 		},
 	}
